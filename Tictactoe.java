@@ -38,7 +38,7 @@ public class Tictactoe{
    }
 
    private static void play(int putX,int putY,int size,int masu[][],int player){
-	     Scanner sc = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
       while(true){
          System.out.println("整数の0~2を入力してください（縦列）");
          putX = sc.nextInt();
@@ -65,7 +65,7 @@ public class Tictactoe{
    private static void win(int player){
       if(player == 1) {
          System.out.println("先手の勝ちです");
-      } else {
+      }else{
          System.out.println("後手の勝ちです");
       }
       System.exit(0);
