@@ -16,13 +16,7 @@ public class Tictactoe{
 
       for(int turn = 0; turn < size*size; turn++){
          int player = turn%2+1;
-         if(player == 1) {
-            System.out.println("先手です\n");
-            play(putX,putY,size,masu,player);
-         } else {
-            System.out.println("後手です\n");
-            play(putX,putY,size,masu,player);
-         }
+         play(putX,putY,size,masu,player);
 
          String sign[] = {" ", "O", "X"};
          for(int y = 0; y<size; y++){
@@ -37,15 +31,20 @@ public class Tictactoe{
       System.out.println("引き分けです");
    }
 
-   private static void play(int putX,int putY,int size,int masu[][],int player){
+   private static void play(int putX,int putY,int size,int[][] masu,int player){
       Scanner sc = new Scanner(System.in);
+      if(player == 1) {
+         System.out.println("先手です\n");
+      }else{
+         System.out.println("後手です\n");
+      }
       while(true){
-         System.out.println("整数の0~2を入力してください（縦列）");
+         System.out.println("整数の0~"+(size-1)+"を入力してください（縦列）");
          putX = sc.nextInt();
-         System.out.println("整数の0~2してください（横列）");
+         System.out.println("整数の0~"+(size-1)+"を入力してください（横列）");
          putY = sc.nextInt();
          if(putX<0 || putY<0 || putX>=size || putY>=size){
-            System.out.println("0~2の整数でもう一度入力してください\n");
+            System.out.println("0~"+(size-1)+"の整数でもう一度入力してください\n");
             continue;
          }else if(masu[putX][putY]!=0){
             System.out.println("その場所は置かれています\nもう一度入力してください\n");
